@@ -13,8 +13,6 @@
 // 4. Сделай так, чтобы текущая реализация выбиралась через useClass в провайдере Angular.
 
 import { Component } from '@angular/core';
-import { NotificationServiceInterface } from '../services/notification-service.interface';
-import { PopupNotificationService } from '../services/popup-notification.service';
 
 @Component({
   selector: 'app-di',
@@ -23,17 +21,8 @@ import { PopupNotificationService } from '../services/popup-notification.service
     <button (click)="sendNotification()">Отправить уведомление</button>
   `,
   standalone: true,
-  providers: [
-    {
-      provide: NotificationServiceInterface,
-      useClass: PopupNotificationService, // Смена реализации здесь
-    },
-  ],
 })
 export class DiComponent {
-  constructor(private notificationService: NotificationServiceInterface) {}
-
   public sendNotification(): void {
-    this.notificationService.notify('Привет из Angular!');
   }
 }
