@@ -5,8 +5,8 @@ import { DiComponent } from './test-2/di/di.component';
 
 @Component({
   selector: 'app-root',
-  template: `<app-form-array />`,
-  // template: `<app-di />`,
+  // template: `<app-form-array />`,
+  template: `<app-di />`,
   imports: [FormArrayComponent, DiComponent],
 })
 export class App {
